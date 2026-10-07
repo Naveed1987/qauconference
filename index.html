@@ -779,226 +779,111 @@
     </div>
 
     <!-- Application Logic -->
-    <script>
-        // 1. Countdown Timer (Target: Dec 25, 2026)
-        function updateCountdown() {
-            const targetDate = new Date('December 25, 2026 00:00:00').getTime();
-            const now = new Date().getTime();
-            const difference = targetDate - now;
+    <!-- Supabase JS Library (Must be inside <head>) -->
+<!-- Ensure <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script> is in your <head> -->
 
-            if (difference > 0) {
-                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+<script>
+  // 1. Initialize Supabase Client
+  // Replace these strings with your exact values from Supabase Settings -> API
+  const SUPABASE_URL = 'https://YOUR-PROJECT-ID.supabase.co';
+  const SUPABASE_ANON_KEY = 'eyJhbGciOi...YOUR-LONG-ANON-KEY-HERE...';
 
-                document.getElementById('count-days').innerText = days < 10 ? '0' + days : days;
-                document.getElementById('count-hours').innerText = hours < 10 ? '0' + hours : hours;
-                document.getElementById('count-minutes').innerText = minutes < 10 ? '0' + minutes : minutes;
-                document.getElementById('count-seconds').innerText = seconds < 10 ? '0' + seconds : seconds;
-            }
-        }
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
+  // Initialize safe client using window object
+  const supabaseClient = window.supabase ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null;
 
-        // 2. Quotes Slider Data & Carousel
-        const quotes = [
-            {
-                text: '"With faith, discipline and selfless devotion to duty, there is nothing worthwhile that you cannot achieve."',
-                author: '— Quaid-e-Azam Muhammad Ali Jinnah (Address to Officers, 1948)'
-            },
-            {
-                text: '"You are free; you are free to go to your temples, you are free to go to your mosques or to any other place of worship in this State of Pakistan."',
-                author: '— Presidential Address to Constituent Assembly (August 11, 1947)'
-            },
-            {
-                text: '"Education is a matter of life and death for Pakistan. The world is moving so fast that if we do not educate ourselves, we will be left far behind."',
-                author: '— All Pakistan Educational Conference (1947)'
-            }
-        ];
-        let currentQuoteIndex = 0;
+  // 2. Handle Delegate Registration Form
+  async function generatePass(event) {
+      if (event) event.preventDefault();
 
-        function renderQuote() {
-            const container = document.getElementById('quote-text-container');
-            container.style.opacity = '0';
-            setTimeout(() => {
-                document.getElementById('quote-text').innerText = quotes[currentQuoteIndex].text;
-                document.getElementById('quote-author').innerText = quotes[currentQuoteIndex].author;
-                container.style.opacity = '1';
-            }, 300);
-        }
+      if (!supabaseClient) {
+          alert('Error: Supabase SDK failed to load. Please check the script tag in your <head>.');
+          return;
+      }
 
-        function nextQuote() {
-            currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
-            renderQuote();
-        }
+      // Read form field values
+      const name = document.getElementById('reg-name').value;
+      const email = document.getElementById('reg-email').value;
+      const inst = document.getElementById('reg-institution').value;
+      const cat = document.getElementById('reg-category').value;
+      const idNum = document.getElementById('reg-id').value;
+      const randomID = 'QAU-150-' + Math.floor(1000 + Math.random() * 9000);
 
-        function prevQuote() {
-            currentQuoteIndex = (currentQuoteIndex - 1 + quotes.length) % quotes.length;
-            renderQuote();
-        }
+      try {
+          // Insert into Supabase 'delegates' table
+          const { data, error } = await supabaseClient
+              .from('delegates')
+              .insert([{ 
+                  full_name: name, 
+                  email: email, 
+                  institution: inst, 
+                  category: cat, 
+                  id_number: idNum 
+              }]);
 
-        // 3. Schedule Tab Switching
-        function switchTab(dayId) {
-            document.querySelectorAll('.schedule-content').forEach(el => el.classList.add('hidden'));
-            document.querySelectorAll('.schedule-tab').forEach(el => {
-                el.classList.remove('border-gold-500', 'text-gold-400');
-                el.classList.add('border-transparent', 'text-slate-400');
-            });
+          if (error) {
+              console.error('Supabase Delegate Error:', error);
+              alert('Database Error: ' + error.message);
+              return;
+          }
 
-            document.getElementById(`content-${dayId}`).classList.remove('hidden');
-            const activeTab = document.getElementById(`tab-${dayId}`);
-            activeTab.classList.add('border-gold-500', 'text-gold-400');
-            activeTab.classList.remove('border-transparent', 'text-slate-400');
-        }
+          // Update live pass preview badge
+          if (document.getElementById('pass-name')) document.getElementById('pass-name').innerText = name;
+          if (document.getElementById('pass-institution')) document.getElementById('pass-institution').innerText = inst;
+          if (document.getElementById('pass-category')) document.getElementById('pass-category').innerText = cat;
+          if (document.getElementById('pass-id-num')) document.getElementById('pass-id-num').innerText = randomID;
 
-        // 4. Photo Gallery Filter
-        function filterGallery(category) {
-            const items = document.querySelectorAll('.gallery-item');
-            items.forEach(item => {
-                if (category === 'all' || item.classList.contains(category)) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-        }
+          alert('Success! Registration saved to Supabase and pass generated.');
 
-        // 5. Book Search Engine
-        function searchBooks() {
-            const input = document.getElementById('book-search').value.toLowerCase();
-            const books = document.querySelectorAll('.book-card');
+      } catch (err) {
+          console.error('Unexpected Error:', err);
+          alert('Error: ' + err.message);
+      }
+  }
 
-            books.forEach(book => {
-                const text = book.innerText.toLowerCase();
-                if (text.includes(input)) {
-                    book.style.display = 'flex';
-                } else {
-                    book.style.display = 'none';
-                }
-            });
-        }
+  // 3. Handle Abstract Submission Form
+  async function handleAbstractSubmit(event) {
+      if (event) event.preventDefault();
 
-        // 6. Modal Functions
-        function openModal(modalId) {
-            document.getElementById(modalId).classList.remove('hidden');
-        }
+      if (!supabaseClient) {
+          alert('Error: Supabase SDK failed to load.');
+          return;
+      }
 
-        function closeModal(modalId) {
-            document.getElementById(modalId).classList.add('hidden');
-        }
+      const form = event.target;
+      const authorName = form.querySelector('input[placeholder*="Jane Doe"], input[type="text"]').value;
+      const paperTitle = form.querySelectorAll('input[type="text"]')[1]?.value || '';
+      const subTheme = form.querySelector('select')?.value || '';
+      const abstractText = form.querySelector('textarea')?.value || '';
 
-        function openImageLightbox(src, caption) {
-            document.getElementById('lightbox-img').src = src;
-            document.getElementById('lightbox-caption').innerText = caption;
-            openModal('lightbox-modal');
-        }
+      try {
+          // Insert into Supabase 'abstracts' table
+          const { data, error } = await supabaseClient
+              .from('abstracts')
+              .insert([{ 
+                  author_name: authorName, 
+                  paper_title: paperTitle, 
+                  sub_theme: subTheme, 
+                  abstract_text: abstractText 
+              }]);
 
-        // 7. Pass Generation & Printing
-        function generatePass(event) {
-            event.preventDefault();
-            const name = document.getElementById('reg-name').value || 'Delegate Name';
-            const inst = document.getElementById('reg-institution').value || 'University / Org';
-            const cat = document.getElementById('reg-category').value;
-            const randomID = 'QAU-150-' + Math.floor(1000 + Math.random() * 9000);
-
-            document.getElementById('pass-name').innerText = name;
-            document.getElementById('pass-institution').innerText = inst;
-            document.getElementById('pass-category').innerText = cat;
-            document.getElementById('pass-id-num').innerText = randomID;
-
-            alert('Your official Delegate Pass preview has been generated! Scroll to view or click "Print / Save Pass".');
-        }
-
-        function printPass() {
-            window.print();
-        }
-
-        function downloadPdf(title) {
-            alert(`Preparing open-access download for: "${title}". PDF download will begin shortly.`);
-        }
-
-        function handleAbstractSubmit(e) {
-            e.preventDefault();
-            alert('Thank you! Your abstract has been successfully submitted to the QAU Academic Committee. An email confirmation has been sent.');
-            closeModal('abstract-modal');
-        }
-
-        // Mobile menu toggle
-        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        });
-        // Initialize Supabase Client
-const SUPABASE_URL = 'https://gbxnepnpkiwbzdkxgslh.supabase.co';
-const SUPABASE_ANON_KEY = 'sb_publishable_CgT_zdUuVYQKiAnq7Hvy_A_2wgk60u1';
-const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
-// Handle Delegate Registration
-async function generatePass(event) {
-    event.preventDefault();
-
-    const name = document.getElementById('reg-name').value;
-    const email = document.getElementById('reg-email').value;
-    const inst = document.getElementById('reg-institution').value;
-    const cat = document.getElementById('reg-category').value;
-    const idNum = document.getElementById('reg-id').value;
-    const randomID = 'QAU-150-' + Math.floor(1000 + Math.random() * 9000);
-
-    // Save registration entry in Supabase
-    const { data, error } = await supabase
-        .from('delegates')
-        .insert([{ 
-            full_name: name, 
-            email: email, 
-            institution: inst, 
-            category: cat, 
-            id_number: idNum 
-        }]);
-
-    if (error) {
-        alert('Error saving registration: ' + error.message);
-        return;
-    }
-
-    // Update UI badge
-    document.getElementById('pass-name').innerText = name;
-    document.getElementById('pass-institution').innerText = inst;
-    document.getElementById('pass-category').innerText = cat;
-    document.getElementById('pass-id-num').innerText = randomID;
-
-    alert('Registration saved successfully! Delegate pass generated.');
-}
-
-// Handle Abstract Submission
-async function handleAbstractSubmit(e) {
-    e.preventDefault();
-
-    const form = e.target;
-    const authorName = form.querySelector('input[placeholder="Dr. Jane Doe"]').value;
-    const paperTitle = form.querySelector('input[placeholder*="Economic Sovereignty"]').value;
-    const subTheme = form.querySelector('select').value;
-    const abstractText = form.querySelector('textarea').value;
-
-    // Save abstract entry in Supabase
-    const { data, error } = await supabase
-        .from('abstracts')
-        .insert([{ 
-            author_name: authorName, 
-            paper_title: paperTitle, 
-            sub_theme: subTheme, 
-            abstract_text: abstractText 
-        }]);
-
-    if (error) {
-        alert('Submission failed: ' + error.message);
-    } else {
-        alert('Abstract submitted successfully!');
-        form.reset();
-        closeModal('abstract-modal');
-    }
-}
-    </script>
+          if (error) {
+              console.error('Supabase Abstract Error:', error);
+              alert('Abstract Submission Error: ' + error.message);
+          } else {
+              alert('Success! Your abstract has been submitted to Supabase.');
+              form.reset();
+              if (typeof closeModal === 'function') {
+                  closeModal('abstract-modal');
+              }
+          }
+      } catch (err) {
+          console.error('Unexpected Error:', err);
+          alert('Error: ' + err.message);
+      }
+  }
+        </script>
+    
+    
     
 </body>
 </html>

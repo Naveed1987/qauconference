@@ -930,6 +930,76 @@
             const menu = document.getElementById('mobile-menu');
             menu.classList.toggle('hidden');
         });
+        // Initialize Supabase Client
+const SUPABASE_URL = 'YOUR_SUPABASE_PROJECT_URL';
+const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY';
+const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+// Handle Delegate Registration
+async function generatePass(event) {
+    event.preventDefault();
+
+    const name = document.getElementById('reg-name').value;
+    const email = document.getElementById('reg-email').value;
+    const inst = document.getElementById('reg-institution').value;
+    const cat = document.getElementById('reg-category').value;
+    const idNum = document.getElementById('reg-id').value;
+    const randomID = 'QAU-150-' + Math.floor(1000 + Math.random() * 9000);
+
+    // Save registration entry in Supabase
+    const { data, error } = await supabase
+        .from('delegates')
+        .insert([{ 
+            full_name: name, 
+            email: email, 
+            institution: inst, 
+            category: cat, 
+            id_number: idNum 
+        }]);
+
+    if (error) {
+        alert('Error saving registration: ' + error.message);
+        return;
+    }
+
+    // Update UI badge
+    document.getElementById('pass-name').innerText = name;
+    document.getElementById('pass-institution').innerText = inst;
+    document.getElementById('pass-category').innerText = cat;
+    document.getElementById('pass-id-num').innerText = randomID;
+
+    alert('Registration saved successfully! Delegate pass generated.');
+}
+
+// Handle Abstract Submission
+async function handleAbstractSubmit(e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const authorName = form.querySelector('input[placeholder="Dr. Jane Doe"]').value;
+    const paperTitle = form.querySelector('input[placeholder*="Economic Sovereignty"]').value;
+    const subTheme = form.querySelector('select').value;
+    const abstractText = form.querySelector('textarea').value;
+
+    // Save abstract entry in Supabase
+    const { data, error } = await supabase
+        .from('abstracts')
+        .insert([{ 
+            author_name: authorName, 
+            paper_title: paperTitle, 
+            sub_theme: subTheme, 
+            abstract_text: abstractText 
+        }]);
+
+    if (error) {
+        alert('Submission failed: ' + error.message);
+    } else {
+        alert('Abstract submitted successfully!');
+        form.reset();
+        closeModal('abstract-modal');
+    }
+}
     </script>
+    
 </body>
 </html>

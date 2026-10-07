@@ -155,25 +155,22 @@
             </p>
 
             <!-- Countdown Timer -->
-            <div class="bg-emerald-900/60 backdrop-blur-md border border-gold-500/30 rounded-2xl p-6 max-w-3xl mx-auto mb-10 shadow-2xl gold-border-glow">
-                <h2 class="text-xs sm:text-sm font-serif uppercase tracking-widest text-gold-400 mb-4">Countdown to 150th Anniversary Gala</h2>
-                <div class="grid grid-cols-4 gap-3 text-center" id="countdown-timer">
-                    <div class="bg-emerald-950/80 p-3 rounded-xl border border-emerald-700/50">
-                        <span id="count-days" class="font-serif text-2xl sm:text-4xl font-bold text-white block">00</span>
-                        <span class="text-xs text-slate-400 uppercase">Days</span>
-                    </div>
-                    <div class="bg-emerald-950/80 p-3 rounded-xl border border-emerald-700/50">
-                        <span id="count-hours" class="font-serif text-2xl sm:text-4xl font-bold text-white block">00</span>
-                        <span class="text-xs text-slate-400 uppercase">Hours</span>
-                    </div>
-                    <div class="bg-emerald-950/80 p-3 rounded-xl border border-emerald-700/50">
-                        <span id="count-minutes" class="font-serif text-2xl sm:text-4xl font-bold text-white block">00</span>
-                        <span class="text-xs text-slate-400 uppercase">Mins</span>
-                    </div>
-                    <div class="bg-emerald-950/80 p-3 rounded-xl border border-emerald-700/50">
-                        <span id="count-seconds" class="font-serif text-2xl sm:text-4xl font-bold text-gold-400 block">00</span>
-                        <span class="text-xs text-slate-400 uppercase">Secs</span>
-                    </div>
+            <div class="grid grid-cols-4 gap-4 max-w-xl mx-auto">
+                <div class="bg-slate-900/80 p-4 rounded-lg border border-slate-800 text-center">
+                    <span id="days" class="text-3xl font-bold text-white block">00</span>
+                    <span class="text-xs text-slate-400">DAYS</span>
+                </div>
+                <div class="bg-slate-900/80 p-4 rounded-lg border border-slate-800 text-center">
+                    <span id="hours" class="text-3xl font-bold text-white block">00</span>
+                    <span class="text-xs text-slate-400">HOURS</span>
+                </div>
+                <div class="bg-slate-900/80 p-4 rounded-lg border border-slate-800 text-center">
+                    <span id="minutes" class="text-3xl font-bold text-white block">00</span>
+                    <span class="text-xs text-slate-400">MINS</span>
+                </div>
+                <div class="bg-slate-900/80 p-4 rounded-lg border border-slate-800 text-center">
+                    <span id="seconds" class="text-3xl font-bold text-amber-400 block">00</span>
+                    <span class="text-xs text-slate-400">SECS</span>
                 </div>
             </div>
 
@@ -321,19 +318,19 @@
 
             <!-- Conference Schedule Tabs -->
             <div class="flex border-b border-slate-700 mb-8">
-            <button id="tab-btn-day1" onclick="switchDay('day1')" 
-            class="tab-btn px-6 py-3 text-amber-400 border-b-2 border-amber-400 font-serif font-bold text-lg focus:outline-none transition-all">
-        DAY 1: DEC 23, 2026
-            </button>
-            <button id="tab-btn-day2" onclick="switchDay('day2')" 
-            class="tab-btn px-6 py-3 text-slate-400 border-b-2 border-transparent font-serif font-bold text-lg hover:text-slate-200 focus:outline-none transition-all">
-        DAY 2: DEC 24, 2026
-            </button>
-            <button id="tab-btn-day3" onclick="switchDay('day3')" 
-            class="tab-btn px-6 py-3 text-slate-400 border-b-2 border-transparent font-serif font-bold text-lg hover:text-slate-200 focus:outline-none transition-all">
-        DAY 3: DEC 25, 2026
-            </button>
-</div>
+                <button id="tab-btn-day1" onclick="switchDay('day1')" 
+                class="tab-btn px-6 py-3 text-amber-400 border-b-2 border-amber-400 font-serif font-bold text-lg focus:outline-none transition-all">
+                DAY 1: DEC 23, 2026
+                </button>
+                <button id="tab-btn-day2" onclick="switchDay('day2')" 
+                class="tab-btn px-6 py-3 text-slate-400 border-b-2 border-transparent font-serif font-bold text-lg hover:text-slate-200 focus:outline-none transition-all">
+                DAY 2: DEC 24, 2026
+                </button>
+                <button id="tab-btn-day3" onclick="switchDay('day3')" 
+                class="tab-btn px-6 py-3 text-slate-400 border-b-2 border-transparent font-serif font-bold text-lg hover:text-slate-200 focus:outline-none transition-all">
+                DAY 3: DEC 25, 2026
+                </button>
+            </div>
 
                 <!-- Day 1 Content -->
                 <div id="content-day1" class="schedule-content space-y-4">
@@ -888,7 +885,37 @@
           alert('Error: ' + err.message);
       }
   }
-        </script>
+    // Target date: December 23, 2026 at 09:00:00
+    const targetDate = new Date('December 25, 2026 09:00:00').getTime();
+
+        function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+
+        if (distance < 0) {
+            document.getElementById('days').innerText = '00';
+            document.getElementById('hours').innerText = '00';
+            document.getElementById('minutes').innerText = '00';
+            document.getElementById('seconds').innerText = '00';
+        return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        if (document.getElementById('days')) document.getElementById('days').innerText = String(days).padStart(2, '0');
+        if (document.getElementById('hours')) document.getElementById('hours').innerText = String(hours).padStart(2, '0');
+        if (document.getElementById('minutes')) document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
+        if (document.getElementById('seconds')) document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
+        }
+
+// Run immediately and update every second
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+    
+</script>
     
     
     

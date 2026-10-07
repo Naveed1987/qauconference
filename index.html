@@ -324,13 +324,13 @@
                 <!-- Tabs -->
                 <div class="flex flex-wrap border-b border-emerald-800 mb-6 gap-2">
                     <button onclick="switchTab('day1')" id="tab-day1" class="schedule-tab px-6 py-3 font-serif text-sm font-bold border-b-2 border-gold-500 text-gold-400">
-                        Day 1: Dec 25, 2026
+                        Day 1: Dec 23, 2026
                     </button>
                     <button onclick="switchTab('day2')" id="tab-day2" class="schedule-tab px-6 py-3 font-serif text-sm font-bold border-b-2 border-transparent text-slate-400 hover:text-white">
-                        Day 2: Dec 26, 2026
+                        Day 2: Dec 24, 2026
                     </button>
                     <button onclick="switchTab('day3')" id="tab-day3" class="schedule-tab px-6 py-3 font-serif text-sm font-bold border-b-2 border-transparent text-slate-400 hover:text-white">
-                        Day 3: Dec 27, 2026
+                        Day 3: Dec 25, 2026
                     </button>
                 </div>
 
@@ -512,9 +512,12 @@
                 <div class="book-card bg-emerald-900/40 border border-emerald-800 rounded-2xl p-6 flex flex-col justify-between hover:border-gold-500/40 transition-all">
                     <div>
                         <div class="flex items-start gap-4 mb-4">
-                            <div class="w-16 h-24 bg-gradient-to-br from-gold-600 to-amber-800 rounded-md shadow-md flex-shrink-0 flex items-center justify-center text-white text-2xl font-serif font-bold p-2 text-center border border-gold-400/30">
-                                Jinnah
-                            </div>
+                            <!-- Replace the thumbnail div of the first card with this: -->
+                        <div class="relative w-16 h-20 bg-gradient-to-br from-amber-600 to-amber-800 rounded-lg flex items-center justify-center p-1 overflow-hidden shrink-0 shadow-md">
+                            <span class="text-white font-serif font-bold text-xs tracking-wider text-center leading-tight">
+                            JINNAH
+    </span>
+</div>
                             <div>
                                 <h3 class="font-serif font-bold text-white text-base leading-snug">Speeches & Statements (1947–1948)</h3>
                                 <p class="text-gold-400 text-xs mt-1">Official Government Archives</p>

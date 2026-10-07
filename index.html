@@ -317,67 +317,72 @@
             </div>
 
             <!-- Conference Schedule Tabs -->
-            <div class="flex border-b border-slate-700 mb-8">
-                <button id="tab-btn-day1" onclick="switchDay('day1')" 
-                class="tab-btn px-6 py-3 text-amber-400 border-b-2 border-amber-400 font-serif font-bold text-lg focus:outline-none transition-all">
-                DAY 1: DEC 23, 2026
-                </button>
-                <button id="tab-btn-day2" onclick="switchDay('day2')" 
-                class="tab-btn px-6 py-3 text-slate-400 border-b-2 border-transparent font-serif font-bold text-lg hover:text-slate-200 focus:outline-none transition-all">
-                DAY 2: DEC 24, 2026
-                </button>
-                <button id="tab-btn-day3" onclick="switchDay('day3')" 
-                class="tab-btn px-6 py-3 text-slate-400 border-b-2 border-transparent font-serif font-bold text-lg hover:text-slate-200 focus:outline-none transition-all">
-                DAY 3: DEC 25, 2026
-                </button>
-            </div>
+            <!-- Schedule Section Header & Tabs -->
+<div class="flex border-b border-slate-700/80 mb-8">
+    <button id="btn-day1" onclick="showSchedule('day1')" class="schedule-tab px-6 py-3 text-amber-400 border-b-2 border-amber-400 font-serif font-bold text-lg cursor-pointer transition-all">
+        DAY 1: DEC 23, 2026
+    </button>
+    <button id="btn-day2" onclick="showSchedule('day2')" class="schedule-tab px-6 py-3 text-slate-400 border-b-2 border-transparent font-serif font-bold text-lg hover:text-slate-200 cursor-pointer transition-all">
+        DAY 2: DEC 24, 2026
+    </button>
+    <button id="btn-day3" onclick="showSchedule('day3')" class="schedule-tab px-6 py-3 text-slate-400 border-b-2 border-transparent font-serif font-bold text-lg hover:text-slate-200 cursor-pointer transition-all">
+        DAY 3: DEC 25, 2026
+    </button>
+</div>
 
-                <!-- Day 1 Content -->
-                <div id="content-day1" class="schedule-content space-y-4">
-                    <div class="flex flex-col sm:flex-row gap-4 p-4 bg-emerald-950/60 rounded-xl border border-emerald-800/50">
-                        <div class="sm:w-32 text-gold-400 font-bold text-sm">09:00 - 10:30 AM</div>
-                        <div class="flex-1">
-                            <span class="bg-gold-500/20 text-gold-300 text-xs px-2 py-0.5 rounded font-semibold">Inaugural Session</span>
-                            <h4 class="font-bold text-white text-base mt-1">Grand Opening Ceremony & Presidential Address</h4>
-                            <p class="text-slate-400 text-xs mt-1"><i class="fa-solid fa-location-dot me-1"></i> QAU Main Auditorium | Chief Guest: President of Pakistan</p>
-                        </div>
-                    </div>
-
-                    <div class="flex flex-col sm:flex-row gap-4 p-4 bg-emerald-950/60 rounded-xl border border-emerald-800/50">
-                        <div class="sm:w-32 text-gold-400 font-bold text-sm">11:00 - 01:00 PM</div>
-                        <div class="flex-1">
-                            <span class="bg-emerald-800 text-emerald-200 text-xs px-2 py-0.5 rounded font-semibold">Panel Session I</span>
-                            <h4 class="font-bold text-white text-base mt-1">The Legal & Constitutional Mind of Jinnah</h4>
-                            <p class="text-slate-400 text-xs mt-1"><i class="fa-solid fa-location-dot me-1"></i> Hall A (Department of History) | Keynote: Prof. Dr. Ayesha Jalal</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Day 2 Content -->
-                <div id="content-day2" class="schedule-content hidden space-y-4">
-                    <div class="flex flex-col sm:flex-row gap-4 p-4 bg-emerald-950/60 rounded-xl border border-emerald-800/50">
-                        <div class="sm:w-32 text-gold-400 font-bold text-sm">10:00 - 12:30 PM</div>
-                        <div class="flex-1">
-                            <span class="bg-emerald-800 text-emerald-200 text-xs px-2 py-0.5 rounded font-semibold">Academic Tracks</span>
-                            <h4 class="font-bold text-white text-base mt-1">Economic Vision: From State Bank Inauguration to Self-Reliance</h4>
-                            <p class="text-slate-400 text-xs mt-1"><i class="fa-solid fa-location-dot me-1"></i> Hall B (Faculty of Social Sciences)</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Day 3 Content -->
-                <div id="content-day3" class="schedule-content hidden space-y-4">
-                    <div class="flex flex-col sm:flex-row gap-4 p-4 bg-emerald-950/60 rounded-xl border border-emerald-800/50">
-                        <div class="sm:w-32 text-gold-400 font-bold text-sm">02:00 - 04:30 PM</div>
-                        <div class="flex-1">
-                            <span class="bg-gold-500/20 text-gold-300 text-xs px-2 py-0.5 rounded font-semibold">Concluding Declaration</span>
-                            <h4 class="font-bold text-white text-base mt-1">Adopt Jinnah Youth Declaration & Closing Ceremony</h4>
-                            <p class="text-slate-400 text-xs mt-1"><i class="fa-solid fa-location-dot me-1"></i> QAU Main Auditorium</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<!-- DAY 1 CONTENT -->
+    <div id="day1" class="schedule-content space-y-4">
+        <div class="p-6 bg-slate-900/60 rounded-xl border border-slate-800 flex flex-col md:flex-row gap-4 justify-between items-start">
+        <div>
+            <span class="px-3 py-1 bg-amber-500/20 text-amber-400 text-xs font-bold rounded-full">Inaugural Session</span>
+            <h3 class="text-white text-xl font-bold mt-2">Grand Opening Ceremony & Presidential Address</h3>
+            <p class="text-slate-400 text-sm mt-1">📍 QAU Main Auditorium | Chief Guest: President of Pakistan</p>
         </div>
+            <span class="text-amber-400 font-bold whitespace-nowrap">09:00 – 10:30 AM</span>
+    </div>
+
+    <div class="p-6 bg-slate-900/60 rounded-xl border border-slate-800 flex flex-col md:flex-row gap-4 justify-between items-start">
+        <div>
+            <span class="px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-bold rounded-full">Panel Session I</span>
+            <h3 class="text-white text-xl font-bold mt-2">The Legal & Constitutional Mind of Jinnah</h3>
+            <p class="text-slate-400 text-sm mt-1">📍 Hall A (Department of History) | Keynote: Prof. Dr. Ayesha Jalal</p>
+        </div>
+        <span class="text-amber-400 font-bold whitespace-nowrap">11:00 – 01:00 PM</span>
+        </div>
+</div>
+
+<!-- DAY 2 CONTENT -->
+<div id="day2" class="schedule-content hidden space-y-4">
+    <div class="p-6 bg-slate-900/60 rounded-xl border border-slate-800 flex flex-col md:flex-row gap-4 justify-between items-start">
+        <div>
+            <span class="px-3 py-1 bg-amber-500/20 text-amber-400 text-xs font-bold rounded-full">Academic Session II</span>
+            <h3 class="text-white text-xl font-bold mt-2">Foreign Policy & Nation Building in South Asia</h3>
+            <p class="text-slate-400 text-sm mt-1">📍 Hall B (Social Sciences Block) | Keynote Speakers</p>
+        </div>
+        <span class="text-amber-400 font-bold whitespace-nowrap">09:30 – 11:30 AM</span>
+    </div>
+
+    <div class="p-6 bg-slate-900/60 rounded-xl border border-slate-800 flex flex-col md:flex-row gap-4 justify-between items-start">
+        <div>
+            <span class="px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-bold rounded-full">Paper Presentations</span>
+            <h3 class="text-white text-xl font-bold mt-2">Archival Research & Historical Documentation</h3>
+            <p class="text-slate-400 text-sm mt-1">📍 Seminar Room 1 | Selected Authors</p>
+        </div>
+        <span class="text-amber-400 font-bold whitespace-nowrap">02:00 – 04:30 PM</span>
+    </div>
+</div>
+
+<!-- DAY 3 CONTENT -->
+<div id="day3" class="schedule-content hidden space-y-4">
+    <div class="p-6 bg-slate-900/60 rounded-xl border border-slate-800 flex flex-col md:flex-row gap-4 justify-between items-start">
+        <div>
+            <span class="px-3 py-1 bg-amber-500/20 text-amber-400 text-xs font-bold rounded-full">Concluding Session</span>
+            <h3 class="text-white text-xl font-bold mt-2">150th Anniversary Gala Declaration & Pass Distribution</h3>
+            <p class="text-slate-400 text-sm mt-1">📍 QAU Main Auditorium | Vice Chancellor & Guests</p>
+        </div>
+        <span class="text-amber-400 font-bold whitespace-nowrap">10:00 – 01:00 PM</span>
+    </div>
+</div>
     </section>
 
     <!-- Photo & Video Archive -->
@@ -914,6 +919,31 @@
 // Run immediately and update every second
     updateCountdown();
     setInterval(updateCountdown, 1000);
+    function showSchedule(dayId) {
+    // 1. Hide all schedule contents
+        const contents = document.querySelectorAll('.schedule-content');
+        contents.forEach(el => el.classList.add('hidden'));
+
+    // 2. Reset tab styles
+        const tabs = document.querySelectorAll('.schedule-tab');
+        tabs.forEach(tab => {
+        tab.classList.remove('text-amber-400', 'border-amber-400');
+        tab.classList.add('text-slate-400', 'border-transparent');
+        });
+
+    // 3. Display selected day content
+        const activeContent = document.getElementById(dayId);
+            if (activeContent) {
+        activeContent.classList.remove('hidden');
+        }
+
+    // 4. Highlight active tab
+        const activeTab = document.getElementById('btn-' + dayId);
+            if (activeTab) {
+            activeTab.classList.remove('text-slate-400', 'border-transparent');
+            activeTab.classList.add('text-amber-400', 'border-amber-400');
+            }
+        }
     
 </script>
     

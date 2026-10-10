@@ -15,10 +15,16 @@
             theme: {
                 extend: {
                     colors: {
-                        emerald: {
-                            850: '#064e3b',
-                            900: '#022c22',
-                            950: '#011910',
+                        navy: {
+                            800: '#1e293b',
+                            900: '#0f172a',
+                            950: '#020617',
+                        },
+                        ivory: {
+                            50: '#fafa0f',
+                            100: '#f8fafc',
+                            200: '#f1f5f9',
+                            300: '#e2e8f0',
                         },
                         gold: {
                             300: '#fde047',
@@ -38,21 +44,21 @@
     </script>
     <style>
         .gold-gradient-text {
-            background: linear-gradient(135deg, #FFE259 0%, #FFA751 100%);
+            background: linear-gradient(135deg, #facc15 0%, #ca8a04 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         .hero-overlay {
-            background: radial-gradient(circle at center, rgba(2, 44, 34, 0.75) 0%, rgba(1, 25, 16, 0.95) 100%);
+            background: radial-gradient(circle at center, rgba(15, 23, 42, 0.85) 0%, rgba(2, 6, 23, 0.95) 100%);
         }
         .gold-border-glow {
-            box-shadow: 0 0 15px rgba(234, 179, 8, 0.2);
+            box-shadow: 0 0 15px rgba(202, 138, 4, 0.3);
         }
         .custom-scrollbar::-webkit-scrollbar {
             width: 6px;
         }
         .custom-scrollbar::-webkit-scrollbar-track {
-            background: #022c22;
+            background: #f1f5f9;
         }
         .custom-scrollbar::-webkit-scrollbar-thumb {
             background: #ca8a04;
@@ -60,10 +66,10 @@
         }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-100 font-sans antialiased custom-scrollbar">
+<body class="bg-slate-50 text-slate-800 font-sans antialiased custom-scrollbar">
 
     <!-- Top Bar -->
-    <div class="bg-emerald-950 text-gold-400 border-b border-emerald-800/50 text-xs sm:text-sm py-2 px-4">
+    <div class="bg-navy-950 text-gold-400 border-b border-navy-800 text-xs sm:text-sm py-2 px-4">
         <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
             <div class="flex items-center gap-3">
                 <span class="flex items-center gap-1.5"><i class="fa-solid fa-university me-1"></i> Quaid-i-Azam University, Islamabad</span>
@@ -73,22 +79,22 @@
             <div class="flex items-center gap-4">
                 <a href="#call-for-papers" class="hover:text-gold-300 transition-colors">Call for Papers</a>
                 <a href="#register" class="hover:text-gold-300 transition-colors">Delegate Portal</a>
-                <span class="bg-emerald-800 text-gold-300 px-2 py-0.5 rounded-full text-xs font-semibold">150th Anniversary Special</span>
+                <span class="bg-navy-800 text-gold-300 px-2 py-0.5 rounded-full text-xs font-semibold">150th Anniversary Special</span>
             </div>
         </div>
     </div>
 
     <!-- Navigation -->
-    <nav class="sticky top-0 z-40 bg-emerald-950/90 backdrop-blur-md border-b border-gold-500/20">
+    <nav class="sticky top-0 z-40 bg-navy-900/95 backdrop-blur-md border-b border-gold-500/20 shadow-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <a href="#" class="flex items-center gap-3 group">
-                    <div class="w-12 h-12 rounded-full border-2 border-gold-500/80 bg-emerald-900 flex items-center justify-center p-1 shadow-lg group-hover:scale-105 transition-transform">
+                    <div class="w-12 h-12 rounded-full border-2 border-gold-500 bg-navy-800 flex items-center justify-center p-1 shadow-lg group-hover:scale-105 transition-transform">
                         <i class="fa-solid fa-monument text-gold-400 text-2xl"></i>
                     </div>
                     <div>
                         <span class="font-serif font-bold text-lg text-white block tracking-wide group-hover:text-gold-400 transition-colors">QAU ISLAMABAD</span>
-                        <span class="text-xs text-gold-500 font-medium tracking-wider uppercase block">Jinnah 150 Secretariat</span>
+                        <span class="text-xs text-gold-400 font-medium tracking-wider uppercase block">Jinnah 150 Secretariat</span>
                     </div>
                 </a>
 
@@ -98,7 +104,7 @@
                     <a href="#call-for-papers" class="text-slate-200 hover:text-gold-400 transition-colors">Call for Papers</a>
                     <a href="#archive" class="text-slate-200 hover:text-gold-400 transition-colors">Archive & Photos</a>
                     <a href="#partners" class="text-slate-200 hover:text-gold-400 transition-colors">Partners</a>
-                    <a href="#register" class="bg-gold-500 text-emerald-950 hover:bg-gold-400 font-bold px-4 py-2 rounded-lg shadow-md hover:shadow-gold-500/20 transition-all">Register Now</a>
+                    <a href="#register" class="bg-gold-500 text-navy-950 hover:bg-gold-400 font-bold px-4 py-2 rounded-lg shadow-md hover:shadow-gold-500/20 transition-all">Register Now</a>
                 </div>
 
                 <button id="mobile-menu-btn" type="button" onclick="toggleMobileMenu()" class="lg:hidden text-slate-300 hover:text-gold-400 text-2xl focus:outline-none">
@@ -107,26 +113,26 @@
             </div>
         </div>
 
-        <div id="mobile-menu" class="hidden lg:hidden bg-emerald-950 border-b border-emerald-800 px-4 pt-2 pb-6 space-y-3">
+        <div id="mobile-menu" class="hidden lg:hidden bg-navy-900 border-b border-navy-800 px-4 pt-2 pb-6 space-y-3">
             <a href="#about" class="block py-2 text-slate-200 hover:text-gold-400">About Conference</a>
             <a href="#schedule" class="block py-2 text-slate-200 hover:text-gold-400">Schedule & Speakers</a>
             <a href="#call-for-papers" class="block py-2 text-slate-200 hover:text-gold-400">Call for Papers</a>
             <a href="#archive" class="block py-2 text-slate-200 hover:text-gold-400">Archive & Photos</a>
             <a href="#partners" class="block py-2 text-slate-200 hover:text-gold-400">Partners</a>
-            <a href="#register" class="block w-full text-center bg-gold-500 text-emerald-950 font-bold py-2 rounded-lg mt-2">Register Now</a>
+            <a href="#register" class="block w-full text-center bg-gold-500 text-navy-950 font-bold py-2 rounded-lg mt-2">Register Now</a>
         </div>
     </nav>
 
-    <!-- Hero Banner with Quaid-e-Azam Portrait -->
-    <section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden py-16">
+    <!-- Hero Banner -->
+    <section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden py-16 bg-navy-950">
         <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&q=80&w=2000" alt="QAU Campus" class="w-full h-full object-cover filter brightness-50 opacity-20">
+            <img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&q=80&w=2000" alt="QAU Campus" class="w-full h-full object-cover filter brightness-50 opacity-25">
             <div class="absolute inset-0 hero-overlay"></div>
         </div>
 
         <div class="relative z-10 max-w-6xl mx-auto px-4 text-center">
             <div class="mb-6 inline-block relative">
-                <div class="w-40 h-40 sm:w-48 sm:h-48 rounded-full border-4 border-gold-500 p-1.5 shadow-2xl gold-border-glow mx-auto overflow-hidden bg-emerald-900">
+                <div class="w-40 h-40 sm:w-48 sm:h-48 rounded-full border-4 border-gold-500 p-1.5 shadow-2xl gold-border-glow mx-auto overflow-hidden bg-navy-900">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/f/f0/Jinnah1945c.jpg" alt="Quaid-e-Azam Muhammad Ali Jinnah" class="w-full h-full object-cover object-top rounded-full">
                 </div>
             </div>
@@ -141,611 +147,31 @@
                 of Quaid-e-Azam Muhammad Ali Jinnah
             </h1>
 
-            <p class="text-emerald-200/90 text-base sm:text-xl max-w-3xl mx-auto mb-8 font-light leading-relaxed">
+            <p class="text-slate-300 text-base sm:text-xl max-w-3xl mx-auto mb-8 font-light leading-relaxed">
                 "Vision of Quaid-e-Azam: Modern Statehood, Democratic Principles, Peace, Education, and Economic Self-Reliance"
             </p>
 
             <!-- Countdown Timer -->
             <div class="grid grid-cols-4 gap-4 max-w-xl mx-auto mb-8">
-                <div class="bg-slate-900/80 p-4 rounded-lg border border-slate-800 text-center">
+                <div class="bg-navy-900/90 p-4 rounded-xl border border-slate-700/60 shadow-md text-center">
                     <span id="days" class="text-3xl font-bold text-white block">00</span>
-                    <span class="text-xs text-slate-400">DAYS</span>
+                    <span class="text-xs text-gold-400 font-semibold tracking-wider">DAYS</span>
                 </div>
-                <div class="bg-slate-900/80 p-4 rounded-lg border border-slate-800 text-center">
+                <div class="bg-navy-900/90 p-4 rounded-xl border border-slate-700/60 shadow-md text-center">
                     <span id="hours" class="text-3xl font-bold text-white block">00</span>
-                    <span class="text-xs text-slate-400">HOURS</span>
+                    <span class="text-xs text-gold-400 font-semibold tracking-wider">HOURS</span>
                 </div>
-                <div class="bg-slate-900/80 p-4 rounded-lg border border-slate-800 text-center">
+                <div class="bg-navy-900/90 p-4 rounded-xl border border-slate-700/60 shadow-md text-center">
                     <span id="minutes" class="text-3xl font-bold text-white block">00</span>
-                    <span class="text-xs text-slate-400">MINS</span>
+                    <span class="text-xs text-gold-400 font-semibold tracking-wider">MINS</span>
                 </div>
-                <div class="bg-slate-900/80 p-4 rounded-lg border border-slate-800 text-center">
-                    <span id="seconds" class="text-3xl font-bold text-amber-400 block">00</span>
-                    <span class="text-xs text-slate-400">SECS</span>
+                <div class="bg-navy-900/90 p-4 rounded-xl border border-slate-700/60 shadow-md text-center">
+                    <span id="seconds" class="text-3xl font-bold text-gold-400 block">00</span>
+                    <span class="text-xs text-gold-400 font-semibold tracking-wider">SECS</span>
                 </div>
             </div>
 
             <div class="flex flex-wrap justify-center gap-4">
-                <a href="#register" class="bg-gold-500 hover:bg-gold-400 text-emerald-950 font-bold px-8 py-3.5 rounded-xl text-base shadow-lg hover:shadow-gold-500/20 transition-all flex items-center gap-2">
+                <a href="#register" class="bg-gold-500 hover:bg-gold-400 text-navy-950 font-bold px-8 py-3.5 rounded-xl text-base shadow-lg hover:shadow-gold-500/20 transition-all flex items-center gap-2">
                     <i class="fa-solid fa-ticket"></i> Get Delegate Pass
                 </a>
-                <button type="button" onclick="openModal('abstract-modal')" class="bg-emerald-900/80 hover:bg-emerald-800 text-white border border-gold-500/40 font-semibold px-8 py-3.5 rounded-xl text-base backdrop-blur-sm transition-all flex items-center gap-2">
-                    <i class="fa-solid fa-file-arrow-up"></i> Submit Abstract
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Quotes Section -->
-    <section class="bg-emerald-900/40 border-y border-gold-500/20 py-10 relative">
-        <div class="max-w-5xl mx-auto px-4 text-center">
-            <div class="inline-block text-gold-500 text-3xl mb-2"><i class="fa-solid fa-quote-left"></i></div>
-            <div id="quote-carousel" class="min-h-[100px] flex items-center justify-center">
-                <div class="transition-opacity duration-500" id="quote-text-container">
-                    <p id="quote-text" class="font-serif text-lg sm:text-2xl text-slate-100 italic mb-3">"With faith, discipline and selfless devotion to duty, there is nothing worthwhile that you cannot achieve."</p>
-                    <p id="quote-author" class="text-gold-400 font-semibold text-sm tracking-wider uppercase">— Quaid-e-Azam Muhammad Ali Jinnah (Address to Officers, 1948)</p>
-                </div>
-            </div>
-            <div class="flex justify-center gap-2 mt-4">
-                <button type="button" onclick="prevQuote()" class="w-8 h-8 rounded-full border border-emerald-700 text-slate-300 hover:text-gold-400 flex items-center justify-center hover:border-gold-500 transition-colors"><i class="fa-solid fa-chevron-left text-xs"></i></button>
-                <button type="button" onclick="nextQuote()" class="w-8 h-8 rounded-full border border-emerald-700 text-slate-300 hover:text-gold-400 flex items-center justify-center hover:border-gold-500 transition-colors"><i class="fa-solid fa-chevron-right text-xs"></i></button>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-                <span class="text-gold-400 font-serif font-bold tracking-wider text-sm uppercase">About The Conference</span>
-                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mt-2 mb-6">Honoring a Visionary Leader at Quaid-i-Azam University</h2>
-                <p class="text-slate-300 leading-relaxed mb-4">
-                    Quaid-i-Azam University (QAU), Pakistan's premier institution of higher learning, proudly hosts a flagship 3-day International Academic Conference celebrating the <strong>150th Birth Anniversary</strong> of the Founder of the Nation, Quaid-e-Azam Muhammad Ali Jinnah.
-                </p>
-                <p class="text-slate-300 leading-relaxed mb-6">
-                    This global symposium brings together world-renowned historians, political scientists, legal scholars, diplomats, and young researchers to re-examine Jinnah's constitutionalism, democratic foresight, minority rights framework, and economic vision for South Asia in the 21st century.
-                </p>
-
-                <div class="grid grid-cols-2 gap-4 border-t border-emerald-800/60 pt-6">
-                    <div>
-                        <span class="text-gold-400 font-bold text-xl block">150+</span>
-                        <span class="text-slate-400 text-xs uppercase tracking-wider">Research Papers</span>
-                    </div>
-                    <div>
-                        <span class="text-gold-400 font-bold text-xl block">25+</span>
-                        <span class="text-slate-400 text-xs uppercase tracking-wider">International Scholars</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Call for Papers -->
-            <div id="call-for-papers" class="bg-gradient-to-br from-emerald-900/80 to-emerald-950 p-8 rounded-2xl border border-gold-500/30 shadow-xl relative overflow-hidden">
-                <div class="absolute -right-10 -bottom-10 opacity-10 text-gold-400 text-9xl">
-                    <i class="fa-solid fa-scroll"></i>
-                </div>
-                
-                <h3 class="font-serif text-2xl font-bold text-gold-400 mb-4 flex items-center gap-2">
-                    <i class="fa-solid fa-bullhorn"></i> Call for Research Papers
-                </h3>
-                
-                <p class="text-slate-200 text-sm mb-6">We invite original research contributions under the following sub-themes:</p>
-                
-                <ul class="space-y-3 text-sm text-slate-300 mb-8">
-                    <li class="flex items-start gap-2.5">
-                        <i class="fa-solid fa-check-circle text-gold-500 mt-1"></i>
-                        <span><strong>Constitutionalism & Rule of Law:</strong> Jinnah's Legal Philosophy</span>
-                    </li>
-                    <li class="flex items-start gap-2.5">
-                        <i class="fa-solid fa-check-circle text-gold-500 mt-1"></i>
-                        <span><strong>Foreign Policy & Peace:</strong> Regional Stability in South Asia</span>
-                    </li>
-                    <li class="flex items-start gap-2.5">
-                        <i class="fa-solid fa-check-circle text-gold-500 mt-1"></i>
-                        <span><strong>Education & Youth Empowerment:</strong> QAU Memorial Lectures</span>
-                    </li>
-                    <li class="flex items-start gap-2.5">
-                        <i class="fa-solid fa-check-circle text-gold-500 mt-1"></i>
-                        <span><strong>Minority Rights & Inclusion:</strong> The August 11, 1947 Vision</span>
-                    </li>
-                </ul>
-
-                <div class="space-y-2 mb-6 text-xs text-gold-300 bg-emerald-950/60 p-4 rounded-lg border border-emerald-800">
-                    <div class="flex justify-between"><span>Abstract Deadline:</span> <strong>October 15, 2026</strong></div>
-                    <div class="flex justify-between"><span>Full Paper Submission:</span> <strong>November 15, 2026</strong></div>
-                    <div class="flex justify-between"><span>Acceptance Notification:</span> <strong>December 01, 2026</strong></div>
-                </div>
-
-                <button type="button" onclick="openModal('abstract-modal')" class="w-full bg-gold-500 hover:bg-gold-400 text-emerald-950 font-bold py-3 rounded-xl transition-colors shadow-lg">
-                    Submit Your Abstract Online
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Schedule Section -->
-    <section id="schedule" class="py-20 bg-emerald-950/60 border-t border-emerald-800/40">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-gold-400 font-serif font-bold text-sm tracking-wider uppercase">Program & Keynotes</span>
-                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mt-2">Keynote Speakers & Schedule</h2>
-                <p class="text-slate-400 text-sm mt-3">Leading historians, legal luminaries, and international thinkers joining us at QAU Islamabad.</p>
-            </div>
-
-            <!-- Keynote Speakers Grid (8 Speakers) -->
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-                <div class="bg-emerald-900/40 border border-emerald-800 rounded-2xl p-5 text-center group hover:border-gold-500/50 transition-all">
-                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400" alt="Dr. Ayesha Jalal" class="w-24 h-24 rounded-full mx-auto object-cover mb-4 border-2 border-gold-500/40 group-hover:scale-105 transition-transform" onerror="this.src='https://placehold.co/150x150/022c22/ffffff?text=Scholar+1'">
-                    <h3 class="font-serif font-bold text-white text-lg">Prof. Dr. Ayesha Jalal</h3>
-                    <p class="text-gold-400 text-xs font-medium mb-2">Tufts University, USA</p>
-                    <p class="text-slate-400 text-xs">Keynote: "Jinnah's Sole Spokesman Legacy & Modern Statehood"</p>
-                </div>
-
-                <div class="bg-emerald-900/40 border border-emerald-800 rounded-2xl p-5 text-center group hover:border-gold-500/50 transition-all">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400" alt="Dr. Akbar S. Ahmed" class="w-24 h-24 rounded-full mx-auto object-cover mb-4 border-2 border-gold-500/40 group-hover:scale-105 transition-transform" onerror="this.src='https://placehold.co/150x150/022c22/ffffff?text=Scholar+2'">
-                    <h3 class="font-serif font-bold text-white text-lg">Dr. Akbar S. Ahmed</h3>
-                    <p class="text-gold-400 text-xs font-medium mb-2">American University, Washington</p>
-                    <p class="text-slate-400 text-xs">Keynote: "Jinnah, Pakistan and Islamic Identity"</p>
-                </div>
-
-                <div class="bg-emerald-900/40 border border-emerald-800 rounded-2xl p-5 text-center group hover:border-gold-500/50 transition-all">
-                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400" alt="Prof. Francis Robinson" class="w-24 h-24 rounded-full mx-auto object-cover mb-4 border-2 border-gold-500/40 group-hover:scale-105 transition-transform" onerror="this.src='https://placehold.co/150x150/022c22/ffffff?text=Scholar+3'">
-                    <h3 class="font-serif font-bold text-white text-lg">Prof. Francis Robinson</h3>
-                    <p class="text-gold-400 text-xs font-medium mb-2">Royal Holloway, Univ. of London</p>
-                    <p class="text-slate-400 text-xs">Keynote: "The Muslim League & The Path to 1947"</p>
-                </div>
-
-                <div class="bg-emerald-900/40 border border-emerald-800 rounded-2xl p-5 text-center group hover:border-gold-500/50 transition-all">
-                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=400" alt="QAU Vice Chancellor" class="w-24 h-24 rounded-full mx-auto object-cover mb-4 border-2 border-gold-500/40 group-hover:scale-105 transition-transform" onerror="this.src='https://placehold.co/150x150/022c22/ffffff?text=VC+QAU'">
-                    <h3 class="font-serif font-bold text-white text-lg">Prof. Dr. Zafar Nawaz Jaspal</h3>
-                    <p class="text-gold-400 text-xs font-medium mb-2">Vice Chancellor, QAU</p>
-                    <p class="text-slate-400 text-xs">Host Chair & Presidential Address</p>
-                </div>
-
-                <div class="bg-emerald-900/40 border border-emerald-800 rounded-2xl p-5 text-center group hover:border-gold-500/50 transition-all">
-                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=400" alt="Dr. Barbara Metcalf" class="w-24 h-24 rounded-full mx-auto object-cover mb-4 border-2 border-gold-500/40 group-hover:scale-105 transition-transform" onerror="this.src='https://placehold.co/150x150/022c22/ffffff?text=Scholar+5'">
-                    <h3 class="font-serif font-bold text-white text-lg">Prof. Barbara Metcalf</h3>
-                    <p class="text-gold-400 text-xs font-medium mb-2">University of Michigan, USA</p>
-                    <p class="text-slate-400 text-xs">Keynote: "South Asian Muslim History & Society"</p>
-                </div>
-
-                <div class="bg-emerald-900/40 border border-emerald-800 rounded-2xl p-5 text-center group hover:border-gold-500/50 transition-all">
-                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=400" alt="Dr. Ian Talbot" class="w-24 h-24 rounded-full mx-auto object-cover mb-4 border-2 border-gold-500/40 group-hover:scale-105 transition-transform" onerror="this.src='https://placehold.co/150x150/022c22/ffffff?text=Scholar+6'">
-                    <h3 class="font-serif font-bold text-white text-lg">Prof. Ian Talbot</h3>
-                    <p class="text-gold-400 text-xs font-medium mb-2">University of Southampton, UK</p>
-                    <p class="text-slate-400 text-xs">Keynote: "Partition Dynamics & State Formation"</p>
-                </div>
-
-                <div class="bg-emerald-900/40 border border-emerald-800 rounded-2xl p-5 text-center group hover:border-gold-500/50 transition-all">
-                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=400" alt="Dr. Christophe Jaffrelot" class="w-24 h-24 rounded-full mx-auto object-cover mb-4 border-2 border-gold-500/40 group-hover:scale-105 transition-transform" onerror="this.src='https://placehold.co/150x150/022c22/ffffff?text=Scholar+7'">
-                    <h3 class="font-serif font-bold text-white text-lg">Dr. Christophe Jaffrelot</h3>
-                    <p class="text-gold-400 text-xs font-medium mb-2">CERI-Sciences Po, France</p>
-                    <p class="text-slate-400 text-xs">Keynote: "Democracy & Nationalism in South Asia"</p>
-                </div>
-
-                <div class="bg-emerald-900/40 border border-emerald-800 rounded-2xl p-5 text-center group hover:border-gold-500/50 transition-all">
-                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=400" alt="Dr. Rizwan Malik" class="w-24 h-24 rounded-full mx-auto object-cover mb-4 border-2 border-gold-500/40 group-hover:scale-105 transition-transform" onerror="this.src='https://placehold.co/150x150/022c22/ffffff?text=Scholar+8'">
-                    <h3 class="font-serif font-bold text-white text-lg">Prof. Dr. Rizwan Malik</h3>
-                    <p class="text-gold-400 text-xs font-medium mb-2">Quaid-i-Azam University, Islamabad</p>
-                    <p class="text-slate-400 text-xs">Keynote: "Jinnah's Economic Vision & Planning"</p>
-                </div>
-            </div>
-
-            <!-- Schedule Tabs -->
-            <div class="flex border-b border-slate-700/80 mb-8 overflow-x-auto">
-                <button type="button" id="btn-day1" onclick="showSchedule('day1')" class="schedule-tab px-6 py-3 text-amber-400 border-b-2 border-amber-400 font-serif font-bold text-lg cursor-pointer transition-all whitespace-nowrap">
-                    DAY 1: DEC 23, 2026
-                </button>
-                <button type="button" id="btn-day2" onclick="showSchedule('day2')" class="schedule-tab px-6 py-3 text-slate-400 border-b-2 border-transparent font-serif font-bold text-lg hover:text-slate-200 cursor-pointer transition-all whitespace-nowrap">
-                    DAY 2: DEC 24, 2026
-                </button>
-                <button type="button" id="btn-day3" onclick="showSchedule('day3')" class="schedule-tab px-6 py-3 text-slate-400 border-b-2 border-transparent font-serif font-bold text-lg hover:text-slate-200 cursor-pointer transition-all whitespace-nowrap">
-                    DAY 3: DEC 25, 2026
-                </button>
-            </div>
-
-            <!-- DAY 1 CONTENT -->
-            <div id="day1" class="schedule-content space-y-4">
-                <div class="p-6 bg-slate-900/60 rounded-xl border border-slate-800 flex flex-col md:flex-row gap-4 justify-between items-start">
-                    <div>
-                        <span class="px-3 py-1 bg-amber-500/20 text-amber-400 text-xs font-bold rounded-full">Inaugural Session</span>
-                        <h3 class="text-white text-xl font-bold mt-2">Grand Opening Ceremony & Presidential Address</h3>
-                        <p class="text-slate-400 text-sm mt-1">📍 QAU Main Auditorium | Chief Guest: President of Pakistan</p>
-                    </div>
-                    <span class="text-amber-400 font-bold whitespace-nowrap">09:00 – 10:30 AM</span>
-                </div>
-
-                <div class="p-6 bg-slate-900/60 rounded-xl border border-slate-800 flex flex-col md:flex-row gap-4 justify-between items-start">
-                    <div>
-                        <span class="px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-bold rounded-full">Panel Session I</span>
-                        <h3 class="text-white text-xl font-bold mt-2">The Legal & Constitutional Mind of Jinnah</h3>
-                        <p class="text-slate-400 text-sm mt-1">📍 Hall A (Department of History) | Keynote: Prof. Dr. Ayesha Jalal</p>
-                    </div>
-                    <span class="text-amber-400 font-bold whitespace-nowrap">11:00 – 01:00 PM</span>
-                </div>
-            </div>
-
-            <!-- DAY 2 CONTENT -->
-            <div id="day2" class="schedule-content hidden space-y-4">
-                <div class="p-6 bg-slate-900/60 rounded-xl border border-slate-800 flex flex-col md:flex-row gap-4 justify-between items-start">
-                    <div>
-                        <span class="px-3 py-1 bg-amber-500/20 text-amber-400 text-xs font-bold rounded-full">Academic Session II</span>
-                        <h3 class="text-white text-xl font-bold mt-2">Foreign Policy & Nation Building in South Asia</h3>
-                        <p class="text-slate-400 text-sm mt-1">📍 Hall B (Social Sciences Block) | Keynote Speakers</p>
-                    </div>
-                    <span class="text-amber-400 font-bold whitespace-nowrap">09:30 – 11:30 AM</span>
-                </div>
-
-                <div class="p-6 bg-slate-900/60 rounded-xl border border-slate-800 flex flex-col md:flex-row gap-4 justify-between items-start">
-                    <div>
-                        <span class="px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-bold rounded-full">Paper Presentations</span>
-                        <h3 class="text-white text-xl font-bold mt-2">Archival Research & Historical Documentation</h3>
-                        <p class="text-slate-400 text-sm mt-1">📍 Seminar Room 1 | Selected Authors</p>
-                    </div>
-                    <span class="text-amber-400 font-bold whitespace-nowrap">02:00 – 04:30 PM</span>
-                </div>
-            </div>
-
-            <!-- DAY 3 CONTENT -->
-            <div id="day3" class="schedule-content hidden space-y-4">
-                <div class="p-6 bg-slate-900/60 rounded-xl border border-slate-800 flex flex-col md:flex-row gap-4 justify-between items-start">
-                    <div>
-                        <span class="px-3 py-1 bg-amber-500/20 text-amber-400 text-xs font-bold rounded-full">Concluding Session</span>
-                        <h3 class="text-white text-xl font-bold mt-2">150th Anniversary Gala Declaration & Pass Distribution</h3>
-                        <p class="text-slate-400 text-sm mt-1">📍 QAU Main Auditorium | Vice Chancellor & Guests</p>
-                    </div>
-                    <span class="text-amber-400 font-bold whitespace-nowrap">10:00 – 01:00 PM</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Photo Archive Section -->
-    <section id="archive" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12">
-            <div>
-                <span class="text-gold-400 font-serif font-bold text-sm tracking-wider uppercase">Rare Archives</span>
-                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mt-2">Historical Photo & Video Gallery</h2>
-            </div>
-
-            <div class="flex flex-wrap gap-2 mt-4 md:mt-0">
-                <button type="button" onclick="filterGallery('all')" class="gallery-filter-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-gold-500 text-emerald-950">All</button>
-                <button type="button" onclick="filterGallery('early')" class="gallery-filter-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-emerald-900/60 text-slate-300 hover:text-gold-400 border border-emerald-800">Early Life</button>
-                <button type="button" onclick="filterGallery('1947')" class="gallery-filter-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-emerald-900/60 text-slate-300 hover:text-gold-400 border border-emerald-800">Independence 1947</button>
-                <button type="button" onclick="filterGallery('qau')" class="gallery-filter-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-emerald-900/60 text-slate-300 hover:text-gold-400 border border-emerald-800">QAU Memorials</button>
-            </div>
-        </div>
-
-        <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-16" id="gallery-grid">
-            <div class="gallery-item early group bg-emerald-900/30 rounded-xl overflow-hidden border border-emerald-800/60 cursor-pointer" onclick="openImageLightbox('https://upload.wikimedia.org/wikipedia/commons/f/f0/Jinnah1945c.jpg', 'Quaid-e-Azam Muhammad Ali Jinnah (1945)')">
-                <div class="relative overflow-hidden aspect-square">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/f/f0/Jinnah1945c.jpg" alt="Quaid-e-Azam Portrait" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/600x600/022c22/ffffff?text=Jinnah+Portrait+1945'">
-                    <div class="absolute inset-0 bg-emerald-950/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <i class="fa-solid fa-magnifying-glass-plus text-gold-400 text-3xl"></i>
-                    </div>
-                </div>
-                <div class="p-3">
-                    <h4 class="font-semibold text-white text-sm">Formal Portrait (1945)</h4>
-                    <span class="text-xs text-gold-400">Early Life & Politics</span>
-                </div>
-            </div>
-
-            <div class="gallery-item 1947 group bg-emerald-900/30 rounded-xl overflow-hidden border border-emerald-800/60 cursor-pointer" onclick="openImageLightbox('https://upload.wikimedia.org/wikipedia/commons/3/3d/Jinnah_and_Mountbatten_14_August_1947.jpg', 'Jinnah & Lord Mountbatten on 14th August 1947')">
-                <div class="relative overflow-hidden aspect-square">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3d/Jinnah_and_Mountbatten_14_August_1947.jpg" alt="14 August 1947 Assembly" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/600x600/022c22/ffffff?text=14+August+1947'">
-                    <div class="absolute inset-0 bg-emerald-950/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <i class="fa-solid fa-magnifying-glass-plus text-gold-400 text-3xl"></i>
-                    </div>
-                </div>
-                <div class="p-3">
-                    <h4 class="font-semibold text-white text-sm">Constituent Assembly (1947)</h4>
-                    <span class="text-xs text-gold-400">Independence 1947</span>
-                </div>
-            </div>
-
-            <div class="gallery-item qau group bg-emerald-900/30 rounded-xl overflow-hidden border border-emerald-800/60 cursor-pointer" onclick="openImageLightbox('https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&q=80&w=800', 'Quaid-i-Azam University Main Campus')">
-                <div class="relative overflow-hidden aspect-square">
-                    <img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&q=80&w=800" alt="QAU Campus" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/600x600/022c22/ffffff?text=QAU+Campus'">
-                    <div class="absolute inset-0 bg-emerald-950/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <i class="fa-solid fa-magnifying-glass-plus text-gold-400 text-3xl"></i>
-                    </div>
-                </div>
-                <div class="p-3">
-                    <h4 class="font-semibold text-white text-sm">QAU Monument Grounds</h4>
-                    <span class="text-xs text-gold-400">QAU Memorials</span>
-                </div>
-            </div>
-
-            <div class="gallery-item 1947 group bg-emerald-900/30 rounded-xl overflow-hidden border border-emerald-800/60 cursor-pointer" onclick="openImageLightbox('https://upload.wikimedia.org/wikipedia/commons/7/7b/Jinnah_Address.jpg', 'Quaid Addressing Public Rally')">
-                <div class="relative overflow-hidden aspect-square">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Jinnah_Address.jpg" alt="Public Rally" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/600x600/022c22/ffffff?text=Public+Address'">
-                    <div class="absolute inset-0 bg-emerald-950/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <i class="fa-solid fa-magnifying-glass-plus text-gold-400 text-3xl"></i>
-                    </div>
-                </div>
-                <div class="p-3">
-                    <h4 class="font-semibold text-white text-sm">Lahore Resolution Rally</h4>
-                    <span class="text-xs text-gold-400">Independence 1947</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Partners Section -->
-    <section id="partners" class="py-16 bg-slate-900/80 border-t border-emerald-800/40">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-12">
-                <span class="text-gold-400 font-serif font-bold text-sm tracking-wider uppercase">Global Collaboration</span>
-                <h2 class="font-serif text-3xl font-bold text-white mt-1">Organizing Partners & Sponsors</h2>
-                <p class="text-slate-400 text-sm mt-2">Supported by leading academic institutions, research councils, and official bodies.</p>
-            </div>
-
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 items-center">
-                <div class="bg-emerald-950/60 border border-emerald-800/60 rounded-xl p-6 flex flex-col items-center justify-center hover:border-gold-500/50 transition-all group h-28">
-                    <i class="fa-solid fa-graduation-cap text-3xl text-gold-400 group-hover:scale-110 transition-transform mb-2"></i>
-                    <span class="text-xs font-semibold text-slate-300 text-center">Higher Education Commission</span>
-                </div>
-                <div class="bg-emerald-950/60 border border-emerald-800/60 rounded-xl p-6 flex flex-col items-center justify-center hover:border-gold-500/50 transition-all group h-28">
-                    <i class="fa-solid fa-book-atlas text-3xl text-gold-400 group-hover:scale-110 transition-transform mb-2"></i>
-                    <span class="text-xs font-semibold text-slate-300 text-center">National History Museum</span>
-                </div>
-                <div class="bg-emerald-950/60 border border-emerald-800/60 rounded-xl p-6 flex flex-col items-center justify-center hover:border-gold-500/50 transition-all group h-28">
-                    <i class="fa-solid fa-globe text-3xl text-gold-400 group-hover:scale-110 transition-transform mb-2"></i>
-                    <span class="text-xs font-semibold text-slate-300 text-center">International History Council</span>
-                </div>
-                <div class="bg-emerald-950/60 border border-emerald-800/60 rounded-xl p-6 flex flex-col items-center justify-center hover:border-gold-500/50 transition-all group h-28">
-                    <i class="fa-solid fa-building-columns text-3xl text-gold-400 group-hover:scale-110 transition-transform mb-2"></i>
-                    <span class="text-xs font-semibold text-slate-300 text-center">Ministry of Federal Education</span>
-                </div>
-                <div class="bg-emerald-950/60 border border-emerald-800/60 rounded-xl p-6 flex flex-col items-center justify-center hover:border-gold-500/50 transition-all group h-28">
-                    <i class="fa-solid fa-newspaper text-3xl text-gold-400 group-hover:scale-110 transition-transform mb-2"></i>
-                    <span class="text-xs font-semibold text-slate-300 text-center">Jinnah Research Academy</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Registration Section -->
-    <section id="register" class="py-20 bg-emerald-950 border-t border-emerald-800">
-        <div class="max-w-4xl mx-auto px-4">
-            <div class="text-center mb-12">
-                <span class="text-gold-400 font-serif font-bold text-sm tracking-wider uppercase">Delegate Registration</span>
-                <h2 class="font-serif text-3xl font-bold text-white mt-1">Secure Your Conference Pass</h2>
-                <p class="text-slate-400 text-sm mt-2">Join us in person or online for the Quaid-e-Azam 150th Anniversary Conference.</p>
-            </div>
-
-            <div class="bg-emerald-900/40 border border-gold-500/30 rounded-2xl p-8 shadow-xl">
-                <form onsubmit="handleRegistration(event)" class="space-y-6">
-                    <div class="grid sm:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-xs font-medium text-slate-300 mb-2">Full Name</label>
-                            <input type="text" required placeholder="Dr. / Mr. / Ms." class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-sm text-white">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-medium text-slate-300 mb-2">Email Address</label>
-                            <input type="email" required placeholder="name@institution.edu" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-sm text-white">
-                        </div>
-                    </div>
-                    <div class="grid sm:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-xs font-medium text-slate-300 mb-2">Institution / Organization</label>
-                            <input type="text" required placeholder="University or Department" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-sm text-white">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-medium text-slate-300 mb-2">Participation Type</label>
-                            <select class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-sm text-white">
-                                <option>In-Person Delegate (QAU Islamabad)</option>
-                                <option>Virtual Attendee (Online Stream)</option>
-                                <option>Presenting Author</option>
-                            </select>
-                        </div>
-                    </div>
-                    <button type="submit" class="w-full bg-gold-500 hover:bg-gold-400 text-emerald-950 font-bold py-3.5 rounded-xl text-base shadow-lg transition-all">
-                        Complete Registration
-                    </button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-slate-950 border-t border-emerald-900 text-slate-400 py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div class="flex justify-center items-center gap-3 mb-4">
-                <div class="w-10 h-10 rounded-full border border-gold-500 bg-emerald-900 flex items-center justify-center">
-                    <i class="fa-solid fa-monument text-gold-400"></i>
-                </div>
-                <span class="font-serif font-bold text-white text-lg">QAU Islamabad - Jinnah 150 Secretariat</span>
-            </div>
-            <p class="text-xs text-slate-500 mb-4">&copy; 2026 Quaid-i-Azam University, Islamabad. All rights reserved.</p>
-            <div class="flex justify-center gap-6 text-sm">
-                <a href="#about" class="hover:text-gold-400 transition-colors">About</a>
-                <a href="#schedule" class="hover:text-gold-400 transition-colors">Schedule</a>
-                <a href="#archive" class="hover:text-gold-400 transition-colors">Archives</a>
-                <a href="#partners" class="hover:text-gold-400 transition-colors">Partners</a>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Abstract Modal -->
-    <div id="abstract-modal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
-        <div class="bg-emerald-950 border border-gold-500/30 rounded-2xl max-w-lg w-full p-6 relative">
-            <button type="button" onclick="closeModal('abstract-modal')" class="absolute top-4 right-4 text-slate-400 hover:text-white text-lg">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-            <h3 class="font-serif font-bold text-xl text-white mb-2">Submit Your Abstract</h3>
-            <p class="text-xs text-slate-300 mb-4">Please fill in your details and abstract summary below (Max 300 words).</p>
-            <form onsubmit="handleAbstractSubmit(event)" class="space-y-4">
-                <div>
-                    <label class="block text-xs font-medium text-slate-300 mb-1">Author Name</label>
-                    <input type="text" required placeholder="Full Name" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs text-white">
-                </div>
-                <div>
-                    <label class="block text-xs font-medium text-slate-300 mb-1">Paper Title</label>
-                    <input type="text" required placeholder="Title of Research Paper" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs text-white">
-                </div>
-                <div>
-                    <label class="block text-xs font-medium text-slate-300 mb-1">Abstract Summary</label>
-                    <textarea rows="4" required placeholder="Enter abstract text..." class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs text-white"></textarea>
-                </div>
-                <button type="submit" class="w-full bg-gold-500 hover:bg-gold-400 text-emerald-950 font-bold py-2.5 rounded-lg text-xs">Submit Abstract</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Lightbox Modal -->
-    <div id="lightbox-modal" class="fixed inset-0 z-50 hidden bg-slate-950/90 backdrop-blur-md flex items-center justify-center p-4" onclick="closeLightbox()">
-        <div class="relative max-w-3xl w-full text-center" onclick="event.stopPropagation()">
-            <button type="button" onclick="closeLightbox()" class="absolute -top-10 right-0 text-slate-300 hover:text-white text-2xl">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-            <img id="lightbox-img" src="" alt="Enlarged Archive Image" class="max-h-[80vh] mx-auto rounded-lg shadow-2xl border border-emerald-800">
-            <p id="lightbox-caption" class="text-gold-400 font-serif text-sm mt-3"></p>
-        </div>
-    </div>
-
-    <!-- JavaScript Execution Engine -->
-    <script>
-        const quotes = [
-            {
-                text: '"With faith, discipline and selfless devotion to duty, there is nothing worthwhile that you cannot achieve."',
-                author: '— Quaid-e-Azam Muhammad Ali Jinnah (Address to Officers, 1948)'
-            },
-            {
-                text: '"You are free; you are free to go to your temples, you are free to go to your mosques or to any other place of worship in this State of Pakistan."',
-                author: '— Quaid-e-Azam Muhammad Ali Jinnah (Constituent Assembly Speech, Aug 11, 1947)'
-            },
-            {
-                text: '"Education is a matter of life and death for Pakistan. The world is moving so fast that if we do not acquire education we will be left behind."',
-                author: '— Quaid-e-Azam Muhammad Ali Jinnah (All Pakistan Educational Conference, 1947)'
-            }
-        ];
-        let currentQuote = 0;
-
-        window.updateQuote = function() {
-            const container = document.getElementById('quote-text-container');
-            if (!container) return;
-            container.style.opacity = '0';
-            setTimeout(() => {
-                const textEl = document.getElementById('quote-text');
-                const authorEl = document.getElementById('quote-author');
-                if (textEl) textEl.innerText = quotes[currentQuote].text;
-                if (authorEl) authorEl.innerText = quotes[currentQuote].author;
-                container.style.opacity = '1';
-            }, 250);
-        };
-
-        window.nextQuote = function() {
-            currentQuote = (currentQuote + 1) % quotes.length;
-            window.updateQuote();
-        };
-
-        window.prevQuote = function() {
-            currentQuote = (currentQuote - 1 + quotes.length) % quotes.length;
-            window.updateQuote();
-        };
-
-        window.showSchedule = function(dayId) {
-            const contents = document.querySelectorAll('.schedule-content');
-            contents.forEach(el => el.classList.add('hidden'));
-
-            const tabs = document.querySelectorAll('.schedule-tab');
-            tabs.forEach(tab => {
-                tab.classList.remove('text-amber-400', 'border-amber-400');
-                tab.classList.add('text-slate-400', 'border-transparent');
-            });
-
-            const activeContent = document.getElementById(dayId);
-            if (activeContent) {
-                activeContent.classList.remove('hidden');
-            }
-
-            const activeBtn = document.getElementById('btn-' + dayId);
-            if (activeBtn) {
-                activeBtn.classList.remove('text-slate-400', 'border-transparent');
-                activeBtn.classList.add('text-amber-400', 'border-amber-400');
-            }
-        };
-
-        window.filterGallery = function(category) {
-            const items = document.querySelectorAll('.gallery-item');
-            items.forEach(item => {
-                if (category === 'all' || item.classList.contains(category)) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-        };
-
-        window.toggleMobileMenu = function() {
-            const menu = document.getElementById('mobile-menu');
-            if (menu) menu.classList.toggle('hidden');
-        };
-
-        window.openModal = function(id) {
-            const modal = document.getElementById(id);
-            if (modal) modal.classList.remove('hidden');
-        };
-
-        window.closeModal = function(id) {
-            const modal = document.getElementById(id);
-            if (modal) modal.classList.add('hidden');
-        };
-
-        window.openImageLightbox = function(src, caption) {
-            const img = document.getElementById('lightbox-img');
-            const cap = document.getElementById('lightbox-caption');
-            const modal = document.getElementById('lightbox-modal');
-            if (img) img.src = src;
-            if (cap) cap.innerText = caption;
-            if (modal) modal.classList.remove('hidden');
-        };
-
-        window.closeLightbox = function() {
-            const modal = document.getElementById('lightbox-modal');
-            if (modal) modal.classList.add('hidden');
-        };
-
-        window.handleAbstractSubmit = function(e) {
-            e.preventDefault();
-            alert('Abstract submitted successfully! The Secretariat will contact you via email.');
-            window.closeModal('abstract-modal');
-        };
-
-        window.handleRegistration = function(e) {
-            e.preventDefault();
-            alert('Delegate registration received! Confirmation details have been sent to your email.');
-        };
-
-        // Initialize Countdown Timer safely after DOM load
-        document.addEventListener('DOMContentLoaded', () => {
-            const targetDate = new Date('December 23, 2026 09:00:00').getTime();
-
-            function runCountdown() {
-                const now = new Date().getTime();
-                const difference = targetDate - now;
-
-                if (difference > 0) {
-                    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-                    const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-                    const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-                    const dEl = document.getElementById('days');
-                    const hEl = document.getElementById('hours');
-                    const mEl = document.getElementById('minutes');
-                    const sEl = document.getElementById('seconds');
-
-                    if (dEl) dEl.innerText = String(days).padStart(2, '0');
-                    if (hEl) hEl.innerText = String(hours).padStart(2, '0');
-                    if (mEl) mEl.innerText = String(minutes).padStart(2, '0');
-                    if (sEl) sEl.innerText = String(seconds).padStart(2, '0');
-                }
-            }
-
-            runCountdown();
-            setInterval(runCountdown, 1000);
-        });
-    </script>
-</body>
-</html>
